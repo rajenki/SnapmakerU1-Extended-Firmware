@@ -14,8 +14,10 @@ The `dev.sh` script automatically sets up a Debian Trixie ARM64 environment with
 - Linux build environment (ARM64 or with cross-compilation support)
 - `make`
 - `wget`
+- `unzip`
 - `squashfs-tools`
-- `gcc-aarch64-linux-gnu`
+- `gcc-aarch64-linux-gnu` (C cross-compiler for ARM64)
+- `g++-aarch64-linux-gnu` (C++ cross-compiler for ARM64)
 - `cmake`
 - `pkg-config`
 - `git-core`
@@ -23,6 +25,10 @@ The `dev.sh` script automatically sets up a Debian Trixie ARM64 environment with
 - `libssl-dev`
 - `dos2unix`
 - `build-essential`
+- `flex`
+- `bison`
+
+**Note:** OpenSSL for aarch64 is automatically built from source during the build process for WebRTC support.
 
 ## Quick Start
 
@@ -81,7 +87,9 @@ sudo make build PROFILE=extended OUTPUT_FILE=firmware/U1_extended.bin
 The build system supports two profiles:
 
 - `basic` - simple modifications not changing key components of the firmware
-- `extended` - extensive modifications changing key components of the firmware
+- `extended` - extensive modifications with Fluidd web UI (includes timelapse)
+
+For experimental Mainsail support, see [Mainsail Web UI](mainsail.md).
 
 ## Overlays
 
@@ -96,8 +104,10 @@ The build system supports two profiles:
 - `disable-wlan-power-save` - Disable WLAN power saving
 - `enable-native-camera-fluidd` - Native camera integration in Fluidd (~1Hz)
 - `camera-v4l2-mpp` - Hardware-accelerated camera stack (MPP/VPU)
-- `stub-fluidd-timelapse` - Stub timelapse component for Moonraker
+- `stub-fluidd-timelapse` - Moonraker-timelapse component for Fluidd/Mainsail
 - `fluidd-upgrade` - Upgrade Fluidd to v1.35.0 with timelapse plugin
+- `mainsail` - Install Mainsail web UI v2.15.0 (replaces Fluidd)
+- `enable-klipper-includes` - Custom Klipper and Moonraker configuration includes
 
 ## Project Structure
 
@@ -111,8 +121,10 @@ The build system supports two profiles:
 │   ├── disable-wlan-power-save/ Disable WLAN power saving
 │   ├── enable-native-camera-fluidd/ Native camera for Fluidd
 │   ├── camera-v4l2-mpp/         Hardware-accelerated camera (MPP/VPU)
-│   ├── stub-fluidd-timelapse/   Timelapse stub
-│   └── fluidd-upgrade/          Fluidd upgrade
+│   ├── stub-fluidd-timelapse/   Moonraker-timelapse component
+│   ├── fluidd-upgrade/          Fluidd upgrade
+│   ├── mainsail/                Mainsail web UI
+│   └── enable-klipper-includes/ Custom config includes
 ├── firmware/                    Downloaded and generated firmware files
 ├── scripts/                     Build and modification scripts
 ├── tmp/                         Temporary build artifacts

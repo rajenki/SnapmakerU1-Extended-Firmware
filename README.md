@@ -46,6 +46,7 @@ Known issues:
 - [Camera Support](docs/camera_support.md) - Camera features and WebRTC streaming
 - [Klipper and Moonraker Custom Includes](docs/klipper_includes.md) - Add custom configuration files via Fluidd
 - [RFID Filament Tag Support](docs/rfid_support.md) - RFID filament tag usage and programming
+- [Mainsail Web UI](docs/mainsail.md) - Mainsail web interface (experimental)
 - [Data Persistence](docs/data_persistence.md) - Persistent storage configuration
 
 ## Dependent projects
