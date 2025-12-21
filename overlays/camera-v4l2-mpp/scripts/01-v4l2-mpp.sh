@@ -105,6 +105,7 @@ if [[ ! -f "$LIVE_INSTALL/lib/libliveMedia.a" ]] || ! file "$LIVE_INSTALL/lib/li
     # Always fetch latest to ensure we get a working version
     wget -O "$LIVE_TARBALL" "http://www.live555.com/liveMedia/public/live555-latest.tar.gz"
     rm -rf "$LIVE_DIR/live"
+    mkdir -p "$LIVE_DIR"
     tar -xzf "$LIVE_TARBALL" -C "$LIVE_DIR"
     mv "$LIVE_DIR/live" "$LIVE_DIR/live-src"
   fi
