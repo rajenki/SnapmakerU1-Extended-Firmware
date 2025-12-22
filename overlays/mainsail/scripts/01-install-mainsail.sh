@@ -15,9 +15,9 @@ set -eo pipefail
 
 TARGET_DIR="$ROOT_DIR/tmp"
 
-VERSION=v2.15.0
+VERSION=v2.16.1
 URL=https://github.com/mainsail-crew/mainsail/releases/download/$VERSION/mainsail.zip
-SHA256=ac8cde4d1d5c818454c9567e548f1ec5ce75e5e331fa878aaded7235e7e0da32
+SHA256=542615d979fe2e49ce10499e58692d6b6a597a541f2632797780c4ed2a089a22
 FILENAME=mainsail-$VERSION.zip
 
 if [[ ! -f "$TARGET_DIR/$FILENAME" ]]; then
